@@ -16,6 +16,8 @@ Contact = (function (self) {
                 return v.toString(16);
             });
         };
+        var mails = [];
+        var phones = [];
 
         this.gender = function () {
             return gender;
@@ -29,11 +31,23 @@ Contact = (function (self) {
         this.id = function () {
             return id;
         };
+        this.mails = function () {
+            return mails;
+        };
+        this.phones = function () {
+            return phones;
+        };
         var init = function (vgender, vfirstname, vlastname) {
             gender = vgender;
             firstname = vfirstname;
             lastname = vlastname;
             id = build_id();
+        };
+        this.addMail = function (mail) {
+            mails.push(mail);
+        };
+        this.addPhone = function (phone) {
+            phones.push(phone);
         };
         init(vgender, vfirstname, vlastname);
     };
