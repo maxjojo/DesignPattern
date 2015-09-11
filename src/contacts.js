@@ -40,41 +40,44 @@ Contact = (function (self) {
         };
         this.getFromName = function (vfirstname, vlastname) {
             var i = 0;
-            var bool = 0;
-            while ((i < listeContact.length) && (bool != 1)) {
+            var tab = [];
+            while (i < listeContact.length)  {
                 if ((listeContact[i].firstName() === vfirstname) && (listeContact[i].lastName() === vlastname)) {
-                    bool = 1;
+                    tab.push(listeContact[i]);
+                    i++;
                 }
                 else {
                     i++;
                 }
             }
-            if (bool == 1) {
-
-                return listeContact[i];
-            } else {
-                console.log("Id pas trouvé");
-            }
+           return tab;
         };
 
         this.remove = function(vid){
             var i = 0;
             var bool = 0;
             while ((i < listeContact.length) && (bool != 1)) {
-                if ((listeContact[i].firstName() === vfirstname) && (listeContact[i].lastName() === vlastname)) {
+                console.log(" id contacts : "+ listeContact[i].id() + " et id cherché : "+vid);
+                if (listeContact[i].id() === vid) {
                     bool = 1;
                 }
                 else {
                     i++;
                 }
             }
-            if (bool == 1) {
-
-           delete(listeContact.i);
+            if (bool === 1) {
+            listeContact.splice(i, 1);
             } else {
                 console.log("Id pas trouvé");
             }
         };
+
+        this.getListeContacts = function(){
+            return listeContact;
+        }
+
+        this.search = function(strategy) {
+        return strategy.get(this);
         };
     };
 

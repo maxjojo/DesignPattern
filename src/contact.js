@@ -10,12 +10,10 @@ Contact = (function (self) {
         var gender;
         var firstname;
         var lastname;
-        var build_id = function () {
-            'xxxx - xxxx - xxxx - xxxx - xxxx'.replace(/x/g, function (c) {
+        var build_id = 'xxxx - xxxx - xxxx - xxxx - xxxx'.replace(/x/g, function (c) {
                 var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
                 return v.toString(16);
             });
-        };
         var mails = [];
         var phones = [];
 
@@ -30,6 +28,7 @@ Contact = (function (self) {
         };
         this.id = function () {
             return id;
+
         };
         this.mails = function () {
             return mails;
@@ -41,7 +40,7 @@ Contact = (function (self) {
             gender = vgender;
             firstname = vfirstname;
             lastname = vlastname;
-            id = build_id();
+            id = build_id;
         };
         this.addMail = function (mail) {
             mails.push(mail);
