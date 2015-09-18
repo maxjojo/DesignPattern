@@ -27,6 +27,9 @@ Contact = (function (self) {
             }
 
         };
+        this.getKey =function(){
+            return pname;
+        };
         };
     return self;
 }(Contact || {}));

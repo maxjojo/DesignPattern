@@ -6,11 +6,11 @@ Contact = (function (self) {
     'use strict';
     self.RemoveCommand = function () {
         var contact;
-        this.execute=function(idcontact){
+        this.execute = function (idcontact) {
             contact = Contact.Contacts.instance().get(idcontact);
             Contact.Contacts.instance().remove(idcontact);
         };
-        this.undo=function(){
+        this.undo = function () {
             Contact.Contacts.instance().add(contact);
         };
     };

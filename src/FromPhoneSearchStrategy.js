@@ -29,6 +29,10 @@ Contact = (function (self) {
                 console.log("Problème de téléphone pas sérieux!!!");
                 return null;
             }
+
+        };
+        this.getKey =function(){
+            return phone;
         };
     };
     return self;
