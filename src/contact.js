@@ -16,6 +16,7 @@ Contact = (function (self) {
             });
         var mails = [];
         var phones = [];
+        var cache;
 
         this.gender = function () {
             return gender;
@@ -36,6 +37,9 @@ Contact = (function (self) {
         this.phones = function () {
             return phones;
         };
+        this.cache = function(){
+            return cache;
+        };
         var init = function (vgender, vfirstname, vlastname) {
             gender = vgender;
             firstname = vfirstname;
@@ -48,6 +52,15 @@ Contact = (function (self) {
         this.addPhone = function (phone) {
             phones.push(phone);
         };
+        this.register=function(observeur){
+           cache= observeur;
+        };
+
+        this.notify=function(){
+            if(cache!=null){
+                cache.update(this);
+            }
+        }
         init(vgender, vfirstname, vlastname);
     };
     return self;

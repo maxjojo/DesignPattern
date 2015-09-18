@@ -5,11 +5,11 @@ var Contact = Contact || {};
 Contact = (function (self) {
     'use strict';
     self.FromNameSearchStrategy = function (pname, name) {
-        this.get = function(ccontacts){
-            var contacts=ccontacts.getListeContacts();
+        this.get = function (ccontacts) {
+            var contacts = ccontacts.getListeContacts();
             var i = 0;
             var tab = [];
-            while (i < contacts.length)  {
+            while (i < contacts.length) {
                 if ((contacts[i].firstName() === pname) && (contacts[i].lastName() === name)) {
                     tab.push(contacts[i]);
                     i++;
@@ -19,17 +19,17 @@ Contact = (function (self) {
                 }
             }
 
-            if(tab.length == 1){
+            if (tab.length == 1) {
                 return tab[0];
-                console.log("tableau 0 : "+ tab[0]);
-            }else{
+                console.log("tableau 0 : " + tab[0]);
+            } else {
                 console.log("Problème de jumeaux");
             }
 
         };
-        this.getKey =function(){
-            return pname;
+        this.getKey = function () {
+            return name;
         };
-        };
+    };
     return self;
 }(Contact || {}));

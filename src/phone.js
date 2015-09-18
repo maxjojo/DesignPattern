@@ -20,6 +20,9 @@ Contact = (function (self) {
         this.type = function () {
             return type;
         };
+        this.setnumber = function(newnumber){
+            number=newnumber;
+        };
 
         var init = function (vnumber, vcategory, vtype) {
             number = vnumber;

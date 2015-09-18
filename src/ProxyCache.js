@@ -9,19 +9,26 @@ Contact = (function (self) {
         var historique = {};
 
         this.search = function (strategy) {
-            var i = 0;
-            var contact;
-            while (i < listeContacts.length) {
-                if (listeContacts[i].search(strategy) !== null) {
-                    contact = listeContacts[i].search(strategy);
+            if (!historique.hasOwnProperty(strategy.getKey())) {
+
+                var i = 0;
+                var contact=null;
+                while (i < listeContacts.length) {
+                    if (listeContacts[i].search(strategy) !== null) {
+                        contact = listeContacts[i].search(strategy);
+                    }
+                    i++;
                 }
-                i++;
+                if(contact!==null){
+                    contact.register(this);
+                    historique[strategy.getKey()] = contact;
+                }
+
+            } else {
+                contact = historique[strategy.getKey()];
             }
-            historique[strategy.getKey()] = contact;
-            console.log("Contact :" + contact);
-            console.log("Entrée clé;" + strategy.getKey());
-            console.log("Entrée valeur;" + historique[strategy.getKey()]);
             return contact;
+
         };
         this.inCache = function (strategy) {
             var temp = false;
@@ -33,7 +40,13 @@ Contact = (function (self) {
             }
             return temp;
         };
-
+        this.update = function (contact) {
+            for (var k in historique) {
+                if (historique[k] == contact) {
+                    delete historique[k];
+                }
+            }
+        };
 
     };
 

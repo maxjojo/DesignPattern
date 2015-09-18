@@ -15,6 +15,9 @@ Contact = (function (self) {
         this.category = function () {
             return category;
         };
+        this.setaddress = function(newaddress){
+          address=newaddress;
+        };
 
         var init = function (vaddress, vcategory) {
             address = vaddress;

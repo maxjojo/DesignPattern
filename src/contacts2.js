@@ -79,7 +79,8 @@ Contact = (function (self) {
         };
 
         this.change = function(strategy) {
-            return strategy.get(this);
+            var contact = strategy.substituate(this);
+            return
         };
     };
 
