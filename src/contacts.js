@@ -74,10 +74,13 @@ Contact = (function (self) {
 
         this.getListeContacts = function(){
             return listeContact;
-        }
+        };
 
         this.search = function(strategy) {
         return strategy.get(this);
+        };
+        this.iterator=function(){
+            return new Contact.Iterator(listeContact);
         };
     };
 

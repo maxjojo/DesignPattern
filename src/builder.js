@@ -18,6 +18,11 @@ Contact = (function (self) {
             contact.addPhone(new Contact.Phone(vmobile, Contact.PhoneCategory.PRO,Contact.PhoneType.MOBILE));
             return contact;
         };
+        this.createContactWithTag = function(genre,prenom,nom,tag){
+            var contact = new Contact.Contact(genre,prenom,nom);
+            contact.addTag(tag);
+            return contact;
+        };
     };
     return self;
 }(Contact || {}));
