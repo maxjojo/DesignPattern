@@ -17,8 +17,7 @@ Contact = (function (self) {
             return position < liste.length;
         };
         this.next = function () {
-            position = position + 1;
-            return liste[position];
+            return liste[position++];
         };
 
 

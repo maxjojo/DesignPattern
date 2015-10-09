@@ -23,6 +23,10 @@ Contact = (function (self) {
             contact.addTag(tag);
             return contact;
         };
+        this.createContactWithJson = function(json){
+            var contact = new Contact.Contact(json.gender(),json.firstName(),json.lastName());
+            return contact;
+        };
     };
     return self;
 }(Contact || {}));
